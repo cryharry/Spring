@@ -7,8 +7,31 @@
 			<value>홍길동</value>
 		</constructor-arg>
 		<property name="greeting">
-			<value>안녕,</value>
+			<value>안녕하세요,</value>
 		</property>
 	</bean>
-
+	<bean id="LoggingAdvice" class="sample5.LoggingAdvice" />
+	<bean id="proxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="target">
+			<ref local="messageBean" />
+		</property>
+		<property name="interceptorNames">
+			<list>
+				<value>advisor</value>
+			</list>
+		</property>
+	</bean>
+	<!--  어드바이저 = 어드바이스 + 포인트컷(조인포인터) -->
+	<bean id="advisor" class="org.springframework.aop.support.DefaultPointcutAdvisor">
+		<property name="advice">
+			<ref local="LoggingAdvice" />
+		</property>
+		<property name="pointcut">
+			<bean class="org.springframework.aop.support.JdkRegexpMethodPointcut">
+				<property name="pattern">
+					<value>.*sayHello.*</value>
+				</property>
+			</bean>
+		</property>
+	</bean>
 </beans>

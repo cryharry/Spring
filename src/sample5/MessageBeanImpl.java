@@ -17,6 +17,11 @@ public class MessageBeanImpl implements MessageBean{
 	}
 	@Override
 	public void sayHello() {
+		try {
+			Thread.sleep(5000);
+		} catch (Exception e) {
+
+		}
 		System.out.println(greeting + name + "!");
 	}
 }
