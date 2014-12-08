@@ -9,5 +9,13 @@
 		<property name="greeting">
 			<value>안녕,</value>
 		</property>
+		<property name="outputter">
+			<ref local="outputter" />
+		</property>
+	</bean>
+	<bean id="outputter" class="sample4.FileOutputter">
+		<property name="filePath">
+			<value>out.txt</value>
+		</property>
 	</bean>
 </beans>
