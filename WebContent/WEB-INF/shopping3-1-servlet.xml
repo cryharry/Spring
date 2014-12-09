@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- HandlerMapping -->
+	
+	<!-- Controller -->
+	<bean id="indexController" name="/index.html" class="controller.IndexController" p:shop-ref="shop">	
+	</bean>
+	<!-- ViewResolver -->
+	
+	<!-- Data Source -->
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName">
+			<value>com.mysql.jdbc.Driver</value>
+		</property>
+		<property name="url">
+			<value>jdbc:mysql://localhost:3306/jspbeginner?useUnicode=true&amp;characterEncoding=UTF-8</value>
+		</property>
+		<property name="username">
+			<value>jspid</value>
+		</property>
+		<property name="password">
+			<value>jsppass</value>
+		</property>
+	</bean>
+	<!-- Shop -->
+	<bean id="shop" class="logic.ShopImpl" p:itemCatalog-ref="itemCatalog">
+	</bean>
+	<!-- ItemCatalog -->
+	<bean id="itemCatalog" class="logic.ItemCatalogImpl" p:itemDao-ref="itemDao">
+	</bean>
+	<!-- ItemDao -->
+	<bean id="itemDao" class="dao.ItemDaoImpl">
+		<property name="dataSource">
+			<ref local="dataSource" />
+		</property>
+	</bean>
+</beans>
