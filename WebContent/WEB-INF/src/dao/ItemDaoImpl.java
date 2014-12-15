@@ -24,4 +24,11 @@ public class ItemDaoImpl implements ItemDao {
 		RowMapper<Item> mapper = new BeanPropertyRowMapper<Item>(Item.class);
 		return this.template.query(SELECT_ALL, mapper);
 	}
+	// 3,4,5 sql 실행 저장
+	private static final String SELECT_BY_PRIMARY_KEY = "SELECT item_id, item_name, item_name, price, description, picture_url FROM item WHERE item_id = ?";
+	@Override
+	public Item findByPrimaryKey(Integer itemId) {
+		RowMapper<Item> mapper = new BeanPropertyRowMapper<Item>(Item.class);
+		return this.template.queryForObject(SELECT_BY_PRIMARY_KEY, mapper, itemId);
+	}
 }

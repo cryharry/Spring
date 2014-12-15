@@ -18,4 +18,8 @@ public class ItemCatalogImpl implements ItemCatalog {
 		// 메서드 호출 findAll()
 		return this.itemDao.findAll();
 	}
+	@Override
+	public Item getItemByItemId(Integer itemId) {
+		return this.itemDao.findByPrimaryKey(itemId);
+	}
 }

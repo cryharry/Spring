@@ -8,20 +8,15 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>상품 목록 화면</h1>
+<h1>상품상세화면</h1>
 <table border="1">
 	<tr>
-		<td>상품ID</td>
-		<td>상품명</td>
-		<td>가격</td>
+		<td><img src="img/${item.pictureUrl }"></td>
+		<td>상품명:${item.itemName }<br>
+		     가격:${item.price }원<br>
+		     비고:${item.description }<br>
+		<a href="index.html">목록으로 돌아가기</a></td>
 	</tr>
-	<c:forEach items="${itemList}" var="item">
-		<tr>
-			<td>${item.itemId }</td>
-			<td><a href="detail.html?itemId=${item.itemId }">${item.itemName }</a></td>
-			<td>${item.price }원</td>
-		</tr>
-	</c:forEach>
 </table>
 </body>
 </html>

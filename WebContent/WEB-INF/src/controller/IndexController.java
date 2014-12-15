@@ -32,7 +32,8 @@ public class IndexController implements Controller {
 		// 저장
 		modelAndView.addAllObjects(model);
 		// 이동
-		modelAndView.setViewName("/WEB-INF/jsp/index.jsp");
+		//modelAndView.setViewName("/WEB-INF/jsp/index.jsp");
+		modelAndView.setViewName("index");
 		return modelAndView;
 	}
 }

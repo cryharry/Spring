@@ -5,4 +5,5 @@ import logic.Item;
 
 public interface ItemDao {
 	List<Item> findAll();
+	Item findByPrimaryKey(Integer itemId);
 }
