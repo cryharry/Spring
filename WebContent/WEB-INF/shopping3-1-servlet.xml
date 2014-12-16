@@ -10,6 +10,7 @@
 				/index.html = indexController
 				/detail.html = detailController
 				/login.html = loginFormController
+				/userEntry.html = userEntryFormController
 			</value>
 		</property>
 	</bean>
@@ -18,7 +19,9 @@
 	</bean>
 	<bean id="detailController" class="controller.DetailController" p:shop-ref="shop">
 	</bean>
-	<bean id="loginFormController" class="controller.LoginFormController">
+	<bean id="loginFormController" class="controller.LoginFormController" p:shop-ref="shop" p:loginValidator-ref="loginValidator">
+	</bean>
+	<bean id="userEntryFormController" class="controller.UserEntryFormController" p:shop-ref="shop">
 	</bean>
 	<!-- ViewResolver -->
 	<bean id="internalResourceViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">

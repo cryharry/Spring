@@ -1,5 +1,6 @@
 package logic;
 
 public interface UserCatalog {
-	User findByUserIdAndPassword(String userId, String password);
+	User getUserByUserIdAndPassword(String userId, String password);
+	void entryUser(User user);
 }

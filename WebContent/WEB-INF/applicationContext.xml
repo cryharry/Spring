@@ -19,7 +19,7 @@
 		</property>
 	</bean>
 	<!-- Shop -->
-	<bean id="shop" class="logic.ShopImpl" p:itemCatalog-ref="itemCatalog">
+	<bean id="shop" class="logic.ShopImpl" p:itemCatalog-ref="itemCatalog" p:userCatalog-ref="userCatalog">
 	</bean>
 	<!-- ItemCatalog -->
 	<bean id="itemCatalog" class="logic.ItemCatalogImpl" p:itemDao-ref="itemDao">
@@ -30,7 +30,22 @@
 			<ref local="dataSource" />
 		</property>
 	</bean>
+	<!-- UserCatalog -->
+	<bean id="userCatalog" class="logic.UserCatalogImpl" p:userDao-ref="userDao">
+	</bean>
 	<!-- UserDao -->
 	<bean id="userDao" class="dao.UserDaoImpl" p:dataSource-ref="dataSource">
+	</bean>
+	
+	<!-- Validator -->
+	<bean id="loginValidator" class="utils.LoginValidator" />
+	
+	<!-- MessageSource -->
+	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basenames">
+			<list>
+				<value>messages</value>
+			</list>
+		</property>
 	</bean>
 </beans>

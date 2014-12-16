@@ -10,4 +10,4 @@ CREATE  TABLE `user` (
   PRIMARY KEY (`user_id`)
 );
 
-insert into user values('hong','honggil','honggil','111-11','busan','hong@n.com','student','2014-12-15');
+insert into user values('hong','honggil','hong','111-11','busan','hong@n.com','student','2014-12-15');

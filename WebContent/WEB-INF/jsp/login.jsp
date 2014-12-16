@@ -12,15 +12,19 @@
 <body>
 <h1>로그인 화면</h1>
 <form:form modelAttribute="user" action="login.html" method="post">
-<!-- 에러 -->
+<spring:hasBindErrors name="user">
+	<c:forEach items="${errors.globalErrors}" var="error">
+		<spring:message code="${error.code }" />
+	</c:forEach>
+</spring:hasBindErrors>
 <table border="1">
 	<tr>
 		<td>유저ID</td>
-		<td><form:input path="userId" /><!-- 에러 --></td>
+		<td><form:input path="userId" /><form:errors path="userId" /></td>
 	</tr>
 	<tr>
 		<td>비밀번호</td>
-		<td><form:input path="password" /><!-- 에러 --></td>
+		<td><form:password path="password" /><form:errors path="password" /></td>
 	</tr>
 	<tr>
 		<td colspan="2">
