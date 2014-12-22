@@ -13,30 +13,35 @@
 <h1>회원가입화면</h1>
 <form:form method="post" action="userEntry.html" modelAttribute="user">
 <!-- 에러 -->
+<spring:hasBindErrors name="user">
+	<c:forEach items="${errors.globalErrors}" var="error">
+		<spring:message code="${error.code }" />
+	</c:forEach>
+</spring:hasBindErrors>
 	<table border="1">
 		<tr>
 			<td>유저ID</td>
-			<td><form:input path="userId" /></td>
+			<td><form:input path="userId" /><form:errors path="userId" /></td>
 		</tr>
 		<tr>
 			<td>패스워드</td>
-			<td><form:password path="password" /></td>
+			<td><form:password path="password" /><form:errors path="password" /></td>
 		</tr>
 		<tr>
 			<td>이름</td>
-			<td><form:input path="userName" /></td>
+			<td><form:input path="userName" /><form:errors path="userName" /></td>
 		</tr>
 		<tr>
 			<td>우편번호</td>
-			<td><form:input path="postCode" /></td>
+			<td><form:input path="postCode" /><form:errors path="postCode" /></td>
 		</tr>
 		<tr>
 			<td>주소</td>
-			<td><form:input path="address" /></td>
+			<td><form:input path="address" /><form:errors path="address" /></td>
 		</tr>
 		<tr>
 			<td>E-MAIL</td>
-			<td><form:input path="email" /></td>
+			<td><form:input path="email" /><form:errors path="email" /></td>
 		</tr>
 		<tr>
 			<td>직업</td>
@@ -51,7 +56,7 @@
 		</tr>
 		<tr>
 			<td>생년월일</td>
-			<td><form:input path="birthDay" /></td>
+			<td><form:input path="birthDay" /><form:errors path="birthDay" /></td>
 		</tr>
 		<tr>
 			<td colspan="2">

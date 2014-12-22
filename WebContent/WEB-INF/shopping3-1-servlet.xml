@@ -21,7 +21,7 @@
 	</bean>
 	<bean id="loginFormController" class="controller.LoginFormController" p:shop-ref="shop" p:loginValidator-ref="loginValidator">
 	</bean>
-	<bean id="userEntryFormController" class="controller.UserEntryFormController" p:shop-ref="shop">
+	<bean id="userEntryFormController" class="controller.UserEntryFormController" p:shop-ref="shop" p:userEntryValidator-ref="userEntryValidator" p:messageSource-ref="messageSource">
 	</bean>
 	<!-- ViewResolver -->
 	<bean id="internalResourceViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
